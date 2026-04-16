@@ -197,9 +197,18 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   void initState() {
     super.initState();
-    name = widget.name;        // ← String, pas .text
+    name = widget.name;
     profession = widget.profession;
     bio = widget.bio;
+  }
+
+  String getInitiales(String fullName) {
+    List<String> parts = fullName.trim().split(' ');
+
+    if (parts.length == 1) {
+      return parts[0][0].toUpperCase();
+    }
+    return (parts[0][0] + parts[1][0]).toUpperCase();
   }
 
   @override
@@ -229,7 +238,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 backgroundColor: AppColors.backgroundSecondary,
                 radius: 100,
                 child: Text(
-                  'EA',
+                  getInitiales(name),
                   style: TextStyle(fontSize: 80, color: AppColors.background),
                 ),
               ),
