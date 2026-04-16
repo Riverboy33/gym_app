@@ -25,6 +25,14 @@ class ProfileData {
   });
 }
 
+class AppColors {
+  static const Color background = Color.fromARGB(255, 54, 73, 78);
+  static const Color backgroundSecondary = Color.fromARGB(255, 169, 206, 244);
+  static const Color text = Colors.white;
+  static const Color textSecondary = Color.fromARGB(255, 89, 112, 129);
+  static const Color button = Color.fromARGB(255, 126, 160, 183);
+}
+
 class ProfilPage extends StatefulWidget {
   const ProfilPage({super.key});
 
@@ -35,17 +43,21 @@ class ProfilPage extends StatefulWidget {
 class _ProfilPageState extends State<ProfilPage> {
   String name = "Emilien Arnaud";
   String profession = "Développeur Roblox";
-  String bio = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+  String bio =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 60, 54, 54),
+      backgroundColor: AppColors.background,
 
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 29, 158, 117),
-        title: Text('Mon profil', style: TextStyle(color: Colors.white)),
+        backgroundColor: AppColors.button,
+        title: Text(
+          'Mon profil',
+          style: TextStyle(color: AppColors.background),
+        ),
       ),
 
       body: Padding(
@@ -58,13 +70,13 @@ class _ProfilPageState extends State<ProfilPage> {
               SizedBox(height: 20),
 
               CircleAvatar(
-                backgroundColor: const Color.fromARGB(255, 147, 239, 199),
+                backgroundColor: AppColors.backgroundSecondary,
                 radius: 100,
                 child: Text(
                   'EA',
                   style: TextStyle(
                     fontSize: 80,
-                    color: Color.fromARGB(255, 25, 82, 42),
+                    color: AppColors.background,
                   ),
                 ),
               ),
@@ -76,7 +88,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                  color: AppColors.text,
                 ),
               ),
 
@@ -87,7 +99,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w300,
-                  color: const Color.fromARGB(255, 180, 180, 180),
+                  color: AppColors.textSecondary,
                 ),
               ),
 
@@ -96,7 +108,7 @@ class _ProfilPageState extends State<ProfilPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Divider(
-                  color: Colors.grey.shade700,
+                  color: AppColors.textSecondary,
                   thickness: 0.5,
                   height: 30,
                 ),
@@ -111,7 +123,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
-                    color: Colors.grey,
+                    color: AppColors.textSecondary,
                   ),
                 ),
               ),
@@ -125,7 +137,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w200,
-                    color: Colors.white,
+                    color: AppColors.text,
                   ),
                 ),
               ),
@@ -136,7 +148,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 29, 158, 117),
+                    backgroundColor: AppColors.button,
                     padding: EdgeInsets.symmetric(vertical: 30),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -163,7 +175,10 @@ class _ProfilPageState extends State<ProfilPage> {
                   },
                   child: Text(
                     'Modifier le profil',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                      color: AppColors.background,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
@@ -180,10 +195,12 @@ class EditProfilPage extends StatefulWidget {
   final String profession;
   final String bio;
 
-  const EditProfilPage({super.key,
+  const EditProfilPage({
+    super.key,
     required this.name,
     required this.profession,
-    required this.bio});
+    required this.bio,
+  });
 
   @override
   State<EditProfilPage> createState() => _EditProfilPage();
@@ -209,7 +226,7 @@ class _EditProfilPage extends State<EditProfilPage> {
 
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 29, 158, 117),
+        backgroundColor: Color.fromARGB(255, 169, 206, 244),
         title: Text(
           'Modifier mon profil',
           style: TextStyle(color: Colors.white),
@@ -295,7 +312,7 @@ class _EditProfilPage extends State<EditProfilPage> {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 29, 158, 117),
+                backgroundColor: Color.fromARGB(255, 169, 206, 244),
               ),
               onPressed: () {
                 Navigator.pop(
@@ -307,10 +324,7 @@ class _EditProfilPage extends State<EditProfilPage> {
                   ),
                 );
               },
-              child: Text(
-                "Sauvegarder",
-                style: TextStyle(color: Colors.white)
-              ),
+              child: Text("Sauvegarder", style: TextStyle(color: Colors.white)),
             ),
           ],
         ),
