@@ -9,7 +9,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: ProfilPage());
+    return MaterialApp(
+      home: RegisterPage(),
+    );
   }
 }
 
@@ -33,18 +35,172 @@ class AppColors {
   static const Color button = Color.fromARGB(255, 126, 160, 183);
 }
 
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController name = TextEditingController();
+  TextEditingController profession = TextEditingController();
+  TextEditingController bio = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.background,
+
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColors.button,
+        title: Text(
+          'Inscription',
+          style: TextStyle(color: AppColors.background),
+        ),
+      ),
+
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Quel est votre Nom et Prenom ?',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: AppColors.textSecondary,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: TextField(
+                controller: name,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Entrez votre nom",
+                  hintStyle: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 30),
+
+            Text(
+              'Quelle est votre profession ?',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: AppColors.textSecondary,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: TextField(
+                controller: profession,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Entrez votre profession",
+                  hintStyle: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 30),
+
+            Text(
+              'Décrivez vous.',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+                color: AppColors.textSecondary,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: TextField(
+                controller: bio,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Entrez votre bio",
+                  hintStyle: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 30),
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.button,
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilPage(
+                      name: name.text,
+                      profession: profession.text,
+                      bio: bio.text,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                "S'inscrire",
+                style: TextStyle(color: AppColors.background),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    name.dispose();
+    profession.dispose();
+    bio.dispose();
+    super.dispose();
+  }
+}
+
 class ProfilPage extends StatefulWidget {
-  const ProfilPage({super.key});
+  final String name;
+  final String profession;
+  final String bio;
+
+  const ProfilPage({
+    super.key,
+    required this.name,
+    required this.profession,
+    required this.bio,
+  });
 
   @override
   State<ProfilPage> createState() => _ProfilPageState();
 }
 
 class _ProfilPageState extends State<ProfilPage> {
-  String name = "Emilien Arnaud";
-  String profession = "Développeur Roblox";
-  String bio =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+  late String name;
+  late String profession;
+  late String bio;
+
+  @override
+  void initState() {
+    super.initState();
+    name = widget.name;        // ← String, pas .text
+    profession = widget.profession;
+    bio = widget.bio;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +230,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 radius: 100,
                 child: Text(
                   'EA',
-                  style: TextStyle(
-                    fontSize: 80,
-                    color: AppColors.background,
-                  ),
+                  style: TextStyle(fontSize: 80, color: AppColors.background),
                 ),
               ),
 
@@ -175,10 +328,7 @@ class _ProfilPageState extends State<ProfilPage> {
                   },
                   child: Text(
                     'Modifier le profil',
-                    style: TextStyle(
-                      color: AppColors.background,
-                      fontSize: 20,
-                    ),
+                    style: TextStyle(color: AppColors.background, fontSize: 20),
                   ),
                 ),
               ),
@@ -324,7 +474,10 @@ class _EditProfilPage extends State<EditProfilPage> {
                   ),
                 );
               },
-              child: Text("Sauvegarder", style: TextStyle(color: AppColors.background)),
+              child: Text(
+                "Sauvegarder",
+                style: TextStyle(color: AppColors.background),
+              ),
             ),
           ],
         ),
