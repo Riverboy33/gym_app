@@ -222,14 +222,14 @@ class _EditProfilPage extends State<EditProfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 60, 54, 54),
+      backgroundColor: AppColors.background,
 
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 169, 206, 244),
+        backgroundColor: AppColors.button,
         title: Text(
           'Modifier mon profil',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: AppColors.background),
         ),
       ),
 
@@ -243,7 +243,7 @@ class _EditProfilPage extends State<EditProfilPage> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
-                color: const Color.fromARGB(255, 180, 180, 180),
+                color: AppColors.textSecondary,
               ),
             ),
 
@@ -267,7 +267,7 @@ class _EditProfilPage extends State<EditProfilPage> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
-                color: const Color.fromARGB(255, 180, 180, 180),
+                color: AppColors.textSecondary,
               ),
             ),
 
@@ -291,7 +291,7 @@ class _EditProfilPage extends State<EditProfilPage> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
-                color: const Color.fromARGB(255, 180, 180, 180),
+                color: AppColors.textSecondary,
               ),
             ),
 
@@ -312,7 +312,7 @@ class _EditProfilPage extends State<EditProfilPage> {
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 169, 206, 244),
+                backgroundColor: AppColors.button,
               ),
               onPressed: () {
                 Navigator.pop(
@@ -324,7 +324,7 @@ class _EditProfilPage extends State<EditProfilPage> {
                   ),
                 );
               },
-              child: Text("Sauvegarder", style: TextStyle(color: Colors.white)),
+              child: Text("Sauvegarder", style: TextStyle(color: AppColors.background)),
             ),
           ],
         ),
