@@ -49,8 +49,15 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (name.text.trim().isEmpty) return;
-
+                if (name.text.trim().isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.red,
+                      content: Text("Le nom est obligatoire"),
+                    )
+                  );
+                  return;
+                }
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
