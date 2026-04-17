@@ -35,18 +35,21 @@ class _RegisterPageState extends State<RegisterPage> {
               hint: "Entrez votre nom",
               maxLength: 20,
             ),
+            
             CustomTextField(
               controller: profession,
               label: "Quelle est votre profession ?",
               hint: "Entrez votre profession",
               maxLength: 20,
             ),
+
             CustomTextField(
               controller: bio,
               label: "Décrivez vous",
               hint: "Entrez votre bio",
               maxLength: 50,
             ),
+
             ElevatedButton(
               onPressed: () {
                 if (name.text.trim().isEmpty) {

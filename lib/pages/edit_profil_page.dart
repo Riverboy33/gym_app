@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../utils/app_colors.dart';
 import '../models/profile_data.dart';
+import '../widgets/custom_text_field.dart';
 
 class EditProfilPage extends StatefulWidget {
   final String name;
@@ -52,81 +52,26 @@ class _EditProfilPage extends State<EditProfilPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Nom Prénom',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-                color: AppColors.textSecondary,
-              ),
+            CustomTextField(
+              controller: name,
+              label: "Quel est votre Nom et Prenom ?",
+              hint: "Entrez votre nom",
+              maxLength: 20,
+            ),
+            
+            CustomTextField(
+              controller: profession,
+              label: "Quelle est votre profession ?",
+              hint: "Entrez votre profession",
+              maxLength: 20,
             ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
-              child: TextField(
-                controller: name,
-                maxLength: 25,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Entrez votre nom",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-              ),
+            CustomTextField(
+              controller: bio,
+              label: "Décrivez vous",
+              hint: "Entrez votre bio",
+              maxLength: 50,
             ),
-
-            SizedBox(height: 30),
-
-            Text(
-              'Profession',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-                color: AppColors.textSecondary,
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
-              child: TextField(
-                controller: profession,
-                maxLength: 25,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Entrez votre profession",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 30),
-
-            Text(
-              'Bio',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-                color: AppColors.textSecondary,
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
-              child: TextField(
-                controller: bio,
-                maxLength: 50,
-                maxLines: 3,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: "Entrez votre bio",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 30),
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
