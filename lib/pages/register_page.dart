@@ -5,6 +5,7 @@ import 'dart:convert';
 import '../utils/app_colors.dart';
 import '../widgets/custom_text_field.dart';
 import 'profil_page.dart';
+import '../models/profile_data.dart';
 
 class RegisterPage extends StatefulWidget {
   final String defaultName;
@@ -29,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
     name.text = widget.defaultName;
   }
 
-  Future<void> registerUser() async {
+  Future<Map<String, dynamic>> registerUser() async {
     final response = await http.post(
       Uri.parse("http://127.0.0.1:8000/users/"),
       headers: {"Content-Type": "application/json"},
@@ -40,8 +41,17 @@ class _RegisterPageState extends State<RegisterPage> {
       }),
     );
 
+    debugPrint("BODY: ${response.body}");
+    debugPrint("STATUS: ${response.statusCode}");
+
+    if (response.statusCode != 200 && response.statusCode != 201) {
+      throw Exception("API error: ${response.body}");
+    }
+
+    final data = jsonDecode(response.body);
+
     if (response.statusCode == 200 || response.statusCode == 201) {
-      debugPrint("User créé");
+      return data;
     } else {
       throw Exception("Erreur création user");
     }
@@ -66,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
               hint: "Votre profession",
               maxLength: 20,
             ),
-            
+
             CustomTextField(
               controller: bio,
               label: "Décrivez vous",
@@ -76,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             ElevatedButton(
               onPressed: () async {
-                print("➡️ Avant POST");
+                debugPrint("➡️ Avant POST");
                 if (name.text.trim().isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -88,18 +98,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 }
 
                 try {
-                  await registerUser();
+                  final data = await registerUser();
 
-                  if (!context.mounted) return;
+                  final profile = ProfileData.fromJson(data);
 
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ProfilPage(
-                        name: name.text,
-                        profession: profession.text,
-                        bio: bio.text,
-                      ),
+                      builder: (_) => ProfilPage(profile: profile),
                     ),
                   );
                 } catch (e) {

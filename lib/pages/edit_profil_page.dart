@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import '../utils/app_colors.dart';
 import '../models/profile_data.dart';
 import '../widgets/custom_text_field.dart';
 
 class EditProfilPage extends StatefulWidget {
+  final int id;
   final String name;
   final String profession;
   final String bio;
 
   const EditProfilPage({
     super.key,
+    required this.id,
     required this.name,
     required this.profession,
     required this.bio,
   });
 
   @override
-  State<EditProfilPage> createState() => _EditProfilPage();
+  State<EditProfilPage> createState() => _EditProfilPageState();
 }
 
-class _EditProfilPage extends State<EditProfilPage> {
+class _EditProfilPageState extends State<EditProfilPage> {
   TextEditingController name = TextEditingController();
   TextEditingController profession = TextEditingController();
   TextEditingController bio = TextEditingController();
@@ -58,7 +62,7 @@ class _EditProfilPage extends State<EditProfilPage> {
               hint: "Entrez votre nom",
               maxLength: 20,
             ),
-            
+
             CustomTextField(
               controller: profession,
               label: "Quelle est votre profession ?",
@@ -77,24 +81,44 @@ class _EditProfilPage extends State<EditProfilPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.button,
               ),
-              onPressed: () {
+              onPressed: () async {
                 if (name.text.trim().isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: Colors.red,
                       content: Text("Le nom est obligatoire"),
-                    )
+                    ),
                   );
                   return;
                 }
-                Navigator.pop(
-                  context,
-                  ProfileData(
-                    name: name.text,
-                    profession: profession.text,
-                    bio: bio.text,
-                  ),
+
+                final response = await http.put(
+                  Uri.parse("http://127.0.0.1:8000/users/${widget.id}"),
+                  headers: {"Content-Type": "application/json"},
+                  body: jsonEncode({
+                    "name": name.text.trim(),
+                    "profession": profession.text.trim(),
+                    "bio": bio.text.trim(),
+                  }),
                 );
+
+                if (!context.mounted) return;
+
+                if (response.statusCode == 200) {
+                  Navigator.pop(
+                    context,
+                    ProfileData(
+                      id: widget.id,
+                      name: name.text.trim(),
+                      profession: profession.text.trim(),
+                      bio: bio.text.trim(),
+                    )
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Erreur mise à jour")),
+                  );
+                }
               },
               child: Text(
                 "Sauvegarder",

@@ -42,14 +42,16 @@ def create_user(user: UserCreate):
     with conn.cursor(cursor_factory=RealDictCursor) as curs:
         curs.execute(
             """
-            INSERT INTO users (name, profession, bio) \
-            VALUES (%s, %s, %s) \
-            RETURNING id
+            INSERT INTO users (name, profession, bio)
+            VALUES (%s, %s, %s)
+            RETURNING id, name, profession, bio
             """,
             (user.name, user.profession, user.bio)
         )
         new_user = curs.fetchone()
+
     conn.commit()
+
     return new_user
 
 
@@ -69,3 +71,31 @@ def login(data: LoginData):
         raise HTTPException(status_code=404, detail="User not found")
 
     return user
+
+
+class UserUpdate(BaseModel):
+    name: str
+    profession: str | None = None
+    bio: str | None = None
+
+@app.put("/users/{user_id}")
+def update_user(user_id: int, user: UserUpdate):
+    with conn.cursor(cursor_factory=RealDictCursor) as curs:
+        curs.execute(
+            """
+            UPDATE users
+            SET name=%s, profession=%s, bio=%s
+            WHERE id=%s
+            RETURNING id, name, profession, bio
+            """,
+            (user.name, user.profession, user.bio, user_id)
+        )
+
+        updated_user = curs.fetchone()
+
+    conn.commit()
+
+    if not updated_user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    return updated_user

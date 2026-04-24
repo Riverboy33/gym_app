@@ -4,32 +4,21 @@ import '../models/profile_data.dart';
 import 'edit_profil_page.dart';
 
 class ProfilPage extends StatefulWidget {
-  final String name;
-  final String profession;
-  final String bio;
+  final ProfileData profile;
 
-  const ProfilPage({
-    super.key,
-    required this.name,
-    required this.profession,
-    required this.bio,
-  });
+  const ProfilPage({super.key, required this.profile});
 
   @override
   State<ProfilPage> createState() => _ProfilPageState();
 }
 
 class _ProfilPageState extends State<ProfilPage> {
-  late String name;
-  late String profession;
-  late String bio;
+  late ProfileData profile;
 
   @override
   void initState() {
     super.initState();
-    name = widget.name;
-    profession = widget.profession;
-    bio = widget.bio;
+    profile = widget.profile;
   }
 
   String getInitiales(String fullName) {
@@ -68,7 +57,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 backgroundColor: AppColors.backgroundSecondary,
                 radius: 100,
                 child: Text(
-                  getInitiales(name),
+                  getInitiales(profile.name),
                   style: TextStyle(fontSize: 80, color: AppColors.background),
                 ),
               ),
@@ -76,7 +65,7 @@ class _ProfilPageState extends State<ProfilPage> {
               SizedBox(height: 12),
 
               Text(
-                name,
+                profile.name,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w600,
@@ -87,7 +76,7 @@ class _ProfilPageState extends State<ProfilPage> {
               SizedBox(height: 4),
 
               Text(
-                profession,
+                profile.profession,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w300,
@@ -125,7 +114,7 @@ class _ProfilPageState extends State<ProfilPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  bio,
+                  profile.bio,
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w200,
@@ -151,17 +140,16 @@ class _ProfilPageState extends State<ProfilPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => EditProfilPage(
-                          name: name,
-                          profession: profession,
-                          bio: bio,
+                          id: profile.id,
+                          name: profile.name,
+                          profession: profile.profession,
+                          bio: profile.bio,
                         ),
                       ),
                     );
                     if (result != null) {
                       setState(() {
-                        name = result.name;
-                        profession = result.profession;
-                        bio = result.bio;
+                        profile = result;
                       });
                     }
                   },
