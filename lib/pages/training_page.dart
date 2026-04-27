@@ -10,7 +10,7 @@ class TrainingPage extends StatefulWidget {
 }
 
 class _TrainingPage extends State<TrainingPage> {
-  final int _currentIndex = 2;
+  final int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

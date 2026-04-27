@@ -15,7 +15,7 @@ class ProfilPage extends StatefulWidget {
 
 class _ProfilPageState extends State<ProfilPage> {
   late ProfileData profile;
-  final int _currentIndex = 1;
+  final int _currentIndex = 4;
 
   @override
   void initState() {

@@ -10,13 +10,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  final int _currentIndex = 0;
+  final int _currentIndex = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      
+
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.button,

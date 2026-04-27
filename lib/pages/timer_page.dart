@@ -10,7 +10,7 @@ class TimerPage extends StatefulWidget {
 }
 
 class _TimerPage extends State<TimerPage> {
-  final int _currentIndex = 4;
+  final int _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {

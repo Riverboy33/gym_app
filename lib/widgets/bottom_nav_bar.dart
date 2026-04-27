@@ -22,18 +22,17 @@ class BottomNavBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
       child: Container(
-        height: 50,
+        height: 60,
         decoration: BoxDecoration(
           color: AppColors.button,
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              iconSize: 30,
               icon: Image.asset(
-                'lib/assets/icons/home.png',
+                'lib/assets/icons/train.png',
                 color: currentIndex == 0
                   ? AppColors.text
                   : AppColors.textSecondary,
@@ -45,7 +44,27 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => HomePage()
+                    builder: (_) => TrainingPage(),
+                  ),
+                );
+              },
+            ),
+
+            IconButton(
+              icon: Image.asset(
+                'lib/assets/icons/timer.png',
+                color: currentIndex == 1
+                  ? AppColors.text
+                  : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              
+              onPressed: () {
+                onTap(1);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => TimerPage(),
                   ),
                 );
               },
@@ -54,34 +73,7 @@ class BottomNavBar extends StatelessWidget {
             IconButton(
               iconSize: 30,
               icon: Image.asset(
-                'lib/assets/icons/profil.png',
-                color: currentIndex == 1
-                  ? AppColors.text
-                  : AppColors.textSecondary,
-                colorBlendMode: BlendMode.srcIn,
-              ),
-
-              onPressed: () {
-                onTap(1);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ProfilPage(
-                      profile: ProfileData(
-                        id: 22,
-                        name: "Gregoire",
-                        profession: "test",
-                        bio: "test",
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-
-            IconButton(
-              icon: Image.asset(
-                'lib/assets/icons/train.png',
+                'lib/assets/icons/home.png',
                 color: currentIndex == 2
                   ? AppColors.text
                   : AppColors.textSecondary,
@@ -93,7 +85,7 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => TrainingPage(),
+                    builder: (_) => HomePage()
                   ),
                 );
               },
@@ -107,7 +99,7 @@ class BottomNavBar extends StatelessWidget {
                   : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
-              
+
               onPressed: () {
                 onTap(3);
                 Navigator.pushReplacement(
@@ -120,20 +112,28 @@ class BottomNavBar extends StatelessWidget {
             ),
 
             IconButton(
+              iconSize: 30,
               icon: Image.asset(
-                'lib/assets/icons/timer.png',
+                'lib/assets/icons/profil.png',
                 color: currentIndex == 4
                   ? AppColors.text
                   : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
-              
+
               onPressed: () {
                 onTap(4);
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => TimerPage(),
+                    builder: (_) => ProfilPage(
+                      profile: ProfileData(
+                        id: 22,
+                        name: "Gregoire",
+                        profession: "test",
+                        bio: "test",
+                      ),
+                    ),
                   ),
                 );
               },
