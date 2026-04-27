@@ -56,6 +56,19 @@ flutter:
   assets:
     - lib/assets/icons/
 
+  fonts:
+    - family: Fairweather
+      fonts:
+        - asset: lib/assets/fonts/Fairweather_SemiBold.ttf
+
+    - family: ZonaPro
+      fonts:
+        - asset: lib/assets/fonts/ZonaPro-Thin.ttf
+        
+    - family: Fontspring
+      fonts:
+        - asset: lib/assets/fonts/Fontspring-tenon-bold.ttf
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

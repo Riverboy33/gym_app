@@ -56,7 +56,7 @@ class _ProfilPageState extends State<ProfilPage> {
               SizedBox(height: 20),
 
               CircleAvatar(
-                backgroundColor: AppColors.backgroundSecondary,
+                backgroundColor: AppColors.button,
                 radius: 100,
                 child: Text(
                   getInitiales(profile.name),
