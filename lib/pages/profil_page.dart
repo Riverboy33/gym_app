@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../models/profile_data.dart';
 import 'edit_profil_page.dart';
+import 'package:gym_app/widgets/bottom_nav_bar.dart';
 
 class ProfilPage extends StatefulWidget {
   final ProfileData profile;
@@ -14,6 +15,7 @@ class ProfilPage extends StatefulWidget {
 
 class _ProfilPageState extends State<ProfilPage> {
   late ProfileData profile;
+  final int _currentIndex = 1;
 
   @override
   void initState() {
@@ -162,6 +164,12 @@ class _ProfilPageState extends State<ProfilPage> {
             ],
           ),
         ),
+      ),
+
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+        },
       ),
     );
   }
