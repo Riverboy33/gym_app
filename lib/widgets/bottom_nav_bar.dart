@@ -33,11 +33,13 @@ class BottomNavBar extends StatelessWidget {
             IconButton(
               iconSize: 30,
               icon: Image.asset(
-                'lib/assets/icons/home.png'
-              ),
-              color: currentIndex == 0
+                'lib/assets/icons/home.png',
+                color: currentIndex == 0
                   ? AppColors.text
                   : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              
               onPressed: () {
                 onTap(0);
                 Navigator.pushReplacement(
@@ -52,11 +54,13 @@ class BottomNavBar extends StatelessWidget {
             IconButton(
               iconSize: 30,
               icon: Image.asset(
-                'lib/assets/icons/profil.png'
-              ),
-              color: currentIndex == 1
+                'lib/assets/icons/profil.png',
+                color: currentIndex == 1
                   ? AppColors.text
                   : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+
               onPressed: () {
                 onTap(1);
                 Navigator.pushReplacement(
@@ -77,11 +81,13 @@ class BottomNavBar extends StatelessWidget {
 
             IconButton(
               icon: Image.asset(
-                'lib/assets/icons/train.png'
-              ),
-              color: currentIndex == 2
+                'lib/assets/icons/train.png',
+                color: currentIndex == 2
                   ? AppColors.text
                   : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              
               onPressed: () {
                 onTap(2);
                 Navigator.pushReplacement(
@@ -95,11 +101,13 @@ class BottomNavBar extends StatelessWidget {
 
             IconButton(
               icon: Image.asset(
-                'lib/assets/icons/success.png'
-              ),
-              color: currentIndex == 3
+                'lib/assets/icons/success.png',
+                color: currentIndex == 3
                   ? AppColors.text
                   : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              
               onPressed: () {
                 onTap(3);
                 Navigator.pushReplacement(
@@ -113,11 +121,13 @@ class BottomNavBar extends StatelessWidget {
 
             IconButton(
               icon: Image.asset(
-                'lib/assets/icons/timer.png'
-              ),
-              color: currentIndex == 4
+                'lib/assets/icons/timer.png',
+                color: currentIndex == 4
                   ? AppColors.text
                   : AppColors.textSecondary,
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              
               onPressed: () {
                 onTap(4);
                 Navigator.pushReplacement(
