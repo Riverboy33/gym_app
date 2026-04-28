@@ -27,38 +27,42 @@ class _HomePage extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Bonjour Gregoire",
-                          style: TextStyle(
-                            color: AppColors.button,
-                            fontFamily: 'Fairweather',
-                            fontSize: 50,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Bonjour Gregoire",
+                            style: TextStyle(
+                              color: AppColors.button,
+                              fontFamily: 'Fairweather',
+                              fontSize: 50,
+                            ),
                           ),
-                        ),
 
-                        Text(
-                          "Lundi 28 Avril 2026",
-                          style: TextStyle(
-                            fontFamily: 'ZonaPro',
-                            fontSize: 20,
-                            color: AppColors.text,
+                          Text(
+                            "Lundi 28 Avril 2026",
+                            style: TextStyle(
+                              fontFamily: 'ZonaPro',
+                              fontSize: 20,
+                              color: AppColors.text,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
 
-                    CircleAvatar(
-                      backgroundColor: AppColors.button,
-                      radius: 40,
-                      child: Text(
-                        "GR",
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: AppColors.background,
+                    Expanded(
+                      child: CircleAvatar(
+                        backgroundColor: AppColors.button,
+                        radius: 40,
+                        child: Text(
+                          "GR",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: AppColors.background,
+                          ),
                         ),
                       ),
                     ),
@@ -91,191 +95,193 @@ class _HomePage extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "L",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "L",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.text,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.text,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "M",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "M",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.text,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.text,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "M",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "M",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.button,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.button,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "J",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "J",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.text,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.text,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "V",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "V",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.text,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.text,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "S",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "S",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.button,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.button,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(width: 15),
-
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: AppColors.button,
-                          radius: 25,
-                          child: Text(
-                            "D",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 25,
-                              color: AppColors.background,
+                    Expanded(child:
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.button,
+                            radius: 25,
+                            child: Text(
+                              "D",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 25,
+                                color: AppColors.background,
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Icon(
-                          Icons.brightness_1_rounded,
-                          color: AppColors.button,
-                          size: 10,
-                        ),
-                      ],
+                          Icon(
+                            Icons.brightness_1_rounded,
+                            color: AppColors.button,
+                            size: 10,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
