@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomePage(profile: ProfileData(id: 1, name: "Gregoire", profession: "test", bio: "test"),),
     );
   }
 }

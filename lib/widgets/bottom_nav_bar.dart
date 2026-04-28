@@ -8,11 +8,13 @@ import 'package:gym_app/pages/training_page.dart';
 import '../utils/app_colors.dart';
 
 class BottomNavBar extends StatelessWidget {
+  final ProfileData profile;
   final int currentIndex;
   final Function(int) onTap;
 
   const BottomNavBar({
     super.key,
+    required this.profile,
     required this.currentIndex,
     required this.onTap,
   });
@@ -44,7 +46,9 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => TrainingPage(),
+                    builder: (_) => TrainingPage(
+                      profile: profile
+                    ),
                   ),
                 );
               },
@@ -64,7 +68,9 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => TimerPage(),
+                    builder: (_) => TimerPage(
+                      profile: profile
+                    ),
                   ),
                 );
               },
@@ -85,7 +91,9 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => HomePage()
+                    builder: (_) => HomePage(
+                      profile: profile
+                    ),
                   ),
                 );
               },
@@ -105,7 +113,9 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => SuccessPage(),
+                    builder: (_) => SuccessPage(
+                      profile: profile
+                    ),
                   ),
                 );
               },
@@ -127,12 +137,7 @@ class BottomNavBar extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (_) => ProfilPage(
-                      profile: ProfileData(
-                        id: 22,
-                        name: "Gregoire",
-                        profession: "test",
-                        bio: "test",
-                      ),
+                      profile: profile
                     ),
                   ),
                 );

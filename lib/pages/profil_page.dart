@@ -167,6 +167,7 @@ class _ProfilPageState extends State<ProfilPage> {
       ),
 
       bottomNavigationBar: BottomNavBar(
+        profile: profile,
         currentIndex: _currentIndex,
         onTap: (index) {
         },
