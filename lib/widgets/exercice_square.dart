@@ -27,7 +27,11 @@ class ExerciceSquare extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Image.asset('lib/assets/icons/train.png'),
+            child: Image.asset(
+              'lib/assets/icons/train.png',
+              height: 130,
+              width: 130,
+            ),
           ),
 
           const SizedBox(height: 5),

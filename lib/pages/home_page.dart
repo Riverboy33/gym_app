@@ -5,6 +5,7 @@ import 'package:gym_app/utils/app_colors.dart';
 import 'package:gym_app/widgets/bottom_nav_bar.dart';
 import 'package:gym_app/widgets/day_circle.dart';
 import 'package:gym_app/pages/training_page.dart';
+import 'package:gym_app/widgets/exercice_square.dart';
 
 class HomePage extends StatefulWidget {
   final ProfileData profile;
@@ -34,6 +35,7 @@ class _HomePage extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(50),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
@@ -136,60 +138,49 @@ class _HomePage extends State<HomePage> {
                       ),
                     );
                   },
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "SEANCE DU JOUR",
-                        style: TextStyle(
-                          fontFamily: 'Fontspring',
-                          fontSize: 25,
-                          color: AppColors.button,
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "SEANCE DU JOUR",
+                            style: TextStyle(
+                              fontFamily: 'Fontspring',
+                              fontSize: 25,
+                              color: AppColors.button,
+                            ),
+                          ),
+
+                          Transform.translate(
+                            offset: Offset(0, 1.5),
+                            child: Icon(Icons.arrow_forward_ios_rounded),
+                          ),
+                        ],
                       ),
 
-                      Transform.translate(
-                        offset: Offset(0, 1.5),
-                        child: Icon(Icons.arrow_forward_ios_rounded),
+                      Text(
+                        "NOM DE LA SEANCE",
+                        style: TextStyle(
+                          color: AppColors.text,
+                          fontFamily: 'ZonaPro',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ],
+                    ]
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 25),
                 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      width: 150,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: AppColors.button,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-
-                    const SizedBox(width: 10),
-
-                    Container(
-                      width: 150,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: AppColors.button,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-
-                    const SizedBox(width: 10),
-
-                    Container(
-                      width: 150,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: AppColors.button,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
+                    ExerciceSquare(exerciceName: "BENCH PRESS", nbSeries: 4, nbReps: 10),
+                    ExerciceSquare(exerciceName: "DEADLIFT", nbSeries: 4, nbReps: 10),
+                    ExerciceSquare(exerciceName: "SHOULDER PRESS", nbSeries: 4, nbReps: 10),
                   ],
                 ),
               ],
