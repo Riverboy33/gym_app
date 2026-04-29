@@ -63,7 +63,12 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text("Inscription"),
+        title: const Text(
+          "Inscription",
+          style: TextStyle(
+            color: AppColors.background
+          ),
+        ),
         centerTitle: true,
         backgroundColor: AppColors.button,
       ),

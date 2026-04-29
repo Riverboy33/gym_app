@@ -68,7 +68,12 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text("Connexion"),
+        title: const Text(
+          "Connexion",
+          style: TextStyle(
+            color: AppColors.background
+          ),
+        ),
         centerTitle: true,
         backgroundColor: AppColors.button,
       ),
