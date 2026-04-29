@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -105,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => ProfilPage(profile: profile),
+                      builder: (_) => HomePage(profile: profile),
                     ),
                   );
                 } catch (e) {

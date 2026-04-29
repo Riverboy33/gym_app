@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/pages/login_page.dart';
 
-import 'package:gym_app/pages/profil_page.dart';
 import 'package:gym_app/models/profile_data.dart';
-
 import 'package:gym_app/pages/home_page.dart';
 
 
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(profile: ProfileData(id: 1, name: "Gregoire", profession: "test", bio: "test"),),
+      home: LoginPage(),
     );
   }
 }

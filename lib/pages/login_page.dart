@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/pages/home_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => ProfilPage(profile: profile)),
+          MaterialPageRoute(builder: (_) => HomePage(profile: profile)),
         );
       } else if (response.statusCode == 404) {
         Navigator.pushReplacement(

@@ -47,7 +47,7 @@ class _HomePage extends State<HomePage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            "Bonjour Gregoire",
+                            "Bonjour ${profile.name}",
                             style: TextStyle(
                               color: AppColors.button,
                               fontFamily: 'Fairweather',
@@ -161,7 +161,7 @@ class _HomePage extends State<HomePage> {
                       ),
 
                       Text(
-                        "NOM DE LA SEANCE",
+                        "DOS + PEC + EPAULES",
                         style: TextStyle(
                           color: AppColors.text,
                           fontFamily: 'ZonaPro',
