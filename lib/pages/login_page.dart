@@ -5,7 +5,6 @@ import 'dart:convert';
 
 import '../utils/app_colors.dart';
 import '../widgets/custom_text_field.dart';
-import 'profil_page.dart';
 import 'register_page.dart';
 import '../models/profile_data.dart';
 
