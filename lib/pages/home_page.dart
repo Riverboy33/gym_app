@@ -22,7 +22,16 @@ class _HomePage extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    profile = widget.profile;  // ← manquant
+    profile = widget.profile;
+  }
+
+  String getInitiales(String fullName) {
+    List<String> parts = fullName.trim().split(' ');
+
+    if (parts.length == 1) {
+      return parts[0][0].toUpperCase();
+    }
+    return (parts[0][0] + parts[1][0]).toUpperCase();
   }
 
   @override
@@ -80,7 +89,7 @@ class _HomePage extends State<HomePage> {
                         backgroundColor: AppColors.button,
                         radius: 40,
                         child: Text(
-                          "GR",
+                          getInitiales(profile.name),
                           style: TextStyle(
                             fontSize: 30,
                             color: AppColors.background,
@@ -184,7 +193,7 @@ class _HomePage extends State<HomePage> {
                       nbSeries: 4,
                       nbReps: 10
                     ),
-                    
+
                     ExerciceSquare(
                       imagePath: 'lib/assets/icons/train.png',
                       exerciceName: "DEADLIFT",
