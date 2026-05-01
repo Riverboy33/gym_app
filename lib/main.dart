@@ -3,6 +3,7 @@ import 'package:gym_app/pages/login_page.dart';
 
 import 'package:gym_app/models/profile_data.dart';
 import 'package:gym_app/pages/home_page.dart';
+import 'package:gym_app/pages/training_page.dart';
 
 
 void main() {
