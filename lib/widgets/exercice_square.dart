@@ -3,12 +3,14 @@ import 'package:gym_app/utils/app_colors.dart';
 
 class ExerciceSquare extends StatelessWidget {
   final String exerciceName;
+  final String imagePath;
   final int nbSeries;
   final int nbReps;
 
   const ExerciceSquare({
     super.key,
     required this.exerciceName,
+    required this.imagePath,
     required this.nbSeries,
     required this.nbReps,
   });
@@ -28,7 +30,7 @@ class ExerciceSquare extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Image.asset(
-              'lib/assets/icons/train.png',
+              imagePath,
               height: 130,
               width: 130,
             ),

@@ -178,9 +178,26 @@ class _HomePage extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    ExerciceSquare(exerciceName: "BENCH PRESS", nbSeries: 4, nbReps: 10),
-                    ExerciceSquare(exerciceName: "DEADLIFT", nbSeries: 4, nbReps: 10),
-                    ExerciceSquare(exerciceName: "SHOULDER PRESS", nbSeries: 4, nbReps: 10),
+                    ExerciceSquare(
+                      imagePath: 'lib/assets/icons/train.png',
+                      exerciceName: "BENCH PRESS",
+                      nbSeries: 4,
+                      nbReps: 10
+                    ),
+                    
+                    ExerciceSquare(
+                      imagePath: 'lib/assets/icons/train.png',
+                      exerciceName: "DEADLIFT",
+                      nbSeries: 4,
+                      nbReps: 10
+                    ),
+
+                    ExerciceSquare(
+                      imagePath: 'lib/assets/icons/train.png',
+                      exerciceName: "SHOULDER PRESS",
+                      nbSeries: 4,
+                      nbReps: 10
+                    ),
                   ],
                 ),
               ],
