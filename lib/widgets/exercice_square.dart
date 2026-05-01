@@ -48,7 +48,7 @@ class ExerciceSquare extends StatelessWidget {
           const SizedBox(height: 2),
 
           Text(
-            "nb SERIES x nb REPS",
+            "$nbSeries SERIES x $nbReps REPS",
             style: TextStyle(
               color: AppColors.background,
               fontFamily: 'ZonaPro',
