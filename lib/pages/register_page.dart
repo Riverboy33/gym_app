@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future<Map<String, dynamic>> registerUser() async {
     final response = await http.post(
-      Uri.parse("http://127.0.0.1:8000/users/"),
+      Uri.parse("http://10.0.2.2:8000/users/"),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode({
         "name": name.text.trim(),
@@ -109,8 +109,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(
-                      builder: (_) => HomePage(profile: profile),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                      HomePage(profile: profile),
+                      transitionDuration: Duration.zero,
+                      reverseTransitionDuration: Duration.zero,
                     ),
                   );
                 } catch (e) {

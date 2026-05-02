@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
       print("➡️ LOGIN CLICK");
 
       final response = await http.post(
-        Uri.parse("http://127.0.0.1:8000/login/"),
+        Uri.parse("http://10.0.2.2:8000/login/"),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"name": nameController.text.trim()}),
       );
