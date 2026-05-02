@@ -80,8 +80,12 @@ class _HomePage extends State<HomePage> {
                       onTap: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                            builder: (_) => ProfilPage(profile: profile),
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => ProfilPage(
+                              profile: profile
+                            ),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
                           ),
                         );
                       },
@@ -142,8 +146,12 @@ class _HomePage extends State<HomePage> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (_) => TrainingPage(profile: profile),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => TrainingPage(
+                          profile: profile
+                        ),
+                        transitionDuration: Duration.zero,
+                        reverseTransitionDuration: Duration.zero,
                       ),
                     );
                   },

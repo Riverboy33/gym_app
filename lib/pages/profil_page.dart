@@ -140,13 +140,15 @@ class _ProfilPageState extends State<ProfilPage> {
                   onPressed: () async {
                     final ProfileData? result = await Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => EditProfilPage(
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => EditProfilPage(
                           id: profile.id,
                           name: profile.name,
                           profession: profile.profession,
                           bio: profile.bio,
                         ),
+                        transitionDuration: Duration.zero,
+                        reverseTransitionDuration: Duration.zero,
                       ),
                     );
                     if (result != null) {

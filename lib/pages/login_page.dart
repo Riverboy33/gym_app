@@ -39,13 +39,23 @@ class _LoginPageState extends State<LoginPage> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => HomePage(profile: profile)),
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => HomePage(
+              profile: profile
+            ),
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+          ),
         );
       } else if (response.statusCode == 404) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (_) => RegisterPage(defaultName: nameController.text),
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => RegisterPage(
+              defaultName: nameController.text
+            ),
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
           ),
         );
       } else {

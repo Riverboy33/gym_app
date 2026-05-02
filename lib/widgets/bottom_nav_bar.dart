@@ -45,10 +45,12 @@ class BottomNavBar extends StatelessWidget {
                 onTap(0);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => TrainingPage(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => TrainingPage(
                       profile: profile
                     ),
+                    transitionDuration: Duration.zero,
+                    reverseTransitionDuration: Duration.zero,
                   ),
                 );
               },
@@ -67,10 +69,12 @@ class BottomNavBar extends StatelessWidget {
                 onTap(1);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => TimerPage(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => TimerPage(
                       profile: profile
                     ),
+                    transitionDuration: Duration.zero,
+                    reverseTransitionDuration: Duration.zero,
                   ),
                 );
               },
@@ -90,10 +94,12 @@ class BottomNavBar extends StatelessWidget {
                 onTap(2);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => HomePage(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => HomePage(
                       profile: profile
                     ),
+                    transitionDuration: Duration.zero,
+                    reverseTransitionDuration: Duration.zero,
                   ),
                 );
               },
@@ -112,10 +118,12 @@ class BottomNavBar extends StatelessWidget {
                 onTap(3);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => SuccessPage(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => SuccessPage(
                       profile: profile
                     ),
+                    transitionDuration: Duration.zero,
+                    reverseTransitionDuration: Duration.zero,
                   ),
                 );
               },
@@ -135,10 +143,12 @@ class BottomNavBar extends StatelessWidget {
                 onTap(4);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => ProfilPage(
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => ProfilPage(
                       profile: profile
                     ),
+                    transitionDuration: Duration.zero,
+                    reverseTransitionDuration: Duration.zero,
                   ),
                 );
               },
