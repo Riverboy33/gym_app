@@ -36,18 +36,22 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.background,
 
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(50),
+            padding: EdgeInsets.only(left: s * 0.06, right: s * 0.06, top: s * 0.09),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
@@ -60,7 +64,7 @@ class _HomePage extends State<HomePage> {
                             style: TextStyle(
                               color: AppColors.button,
                               fontFamily: 'Fairweather',
-                              fontSize: 50,
+                              fontSize: s * 0.1,
                             ),
                           ),
 
@@ -68,8 +72,9 @@ class _HomePage extends State<HomePage> {
                             "Lundi 28 Avril 2026",
                             style: TextStyle(
                               fontFamily: 'ZonaPro',
-                              fontSize: 20,
+                              fontSize: s * 0.045,
                               color: AppColors.text,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ],
@@ -91,11 +96,11 @@ class _HomePage extends State<HomePage> {
                       },
                       child: CircleAvatar(
                         backgroundColor: AppColors.button,
-                        radius: 40,
+                        radius: s * 0.09,
                         child: Text(
                           getInitiales(profile.name),
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: s * 0.07,
                             color: AppColors.background,
                           ),
                         ),
@@ -104,7 +109,7 @@ class _HomePage extends State<HomePage> {
                   ],
                 ),
 
-                const SizedBox(height: 50),
+                SizedBox(height: h * 0.04),
 
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,34 +118,34 @@ class _HomePage extends State<HomePage> {
                       "CETTE SEMAINE",
                       style: TextStyle(
                         fontFamily: 'Fontspring',
-                        fontSize: 25,
+                        fontSize: s * 0.055,
                         color: AppColors.button,
                       ),
                     ),
 
                     Transform.translate(
-                      offset: Offset(0, 1.5),
+                      offset: Offset(0, s * 0.005),
                       child: Icon(Icons.arrow_forward_ios_rounded),
                     ),
                   ],
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: h * 0.015),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    DayCircle(label: "L", hasTraining: true),
-                    DayCircle(label: "M", hasTraining: true),
-                    DayCircle(label: "M", hasTraining: false),
-                    DayCircle(label: "J", hasTraining: true),
-                    DayCircle(label: "V", hasTraining: true),
-                    DayCircle(label: "S", hasTraining: false),
-                    DayCircle(label: "D", hasTraining: false),
-                  ]
+                    DayCircle(label: "L", hasTraining: true, shorthestSide: s),
+                    DayCircle(label: "M", hasTraining: true, shorthestSide: s),
+                    DayCircle(label: "M", hasTraining: false, shorthestSide: s),
+                    DayCircle(label: "J", hasTraining: true, shorthestSide: s),
+                    DayCircle(label: "V", hasTraining: true, shorthestSide: s),
+                    DayCircle(label: "S", hasTraining: false, shorthestSide: s),
+                    DayCircle(label: "D", hasTraining: false, shorthestSide: s),
+                  ],
                 ),
 
-                const SizedBox(height: 50),
+                SizedBox(height: h * 0.03),
 
                 GestureDetector(
                   onTap: () {
@@ -165,13 +170,13 @@ class _HomePage extends State<HomePage> {
                             "SEANCE DU JOUR",
                             style: TextStyle(
                               fontFamily: 'Fontspring',
-                              fontSize: 25,
+                              fontSize: s * 0.055,
                               color: AppColors.button,
                             ),
                           ),
 
                           Transform.translate(
-                            offset: Offset(0, 1.5),
+                            offset: Offset(0, s * 0.005),
                             child: Icon(Icons.arrow_forward_ios_rounded),
                           ),
                         ],
@@ -182,15 +187,15 @@ class _HomePage extends State<HomePage> {
                         style: TextStyle(
                           color: AppColors.text,
                           fontFamily: 'ZonaPro',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
+                          fontSize: s * 0.03,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
                     ]
                   ),
                 ),
 
-                const SizedBox(height: 25),
+                SizedBox(height: h * 0.025),
                 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -199,21 +204,24 @@ class _HomePage extends State<HomePage> {
                       imagePath: 'lib/assets/icons/train.png',
                       exerciceName: "BENCH PRESS",
                       nbSeries: 4,
-                      nbReps: 10
+                      nbReps: 10,
+                      shorthestSide: s,
                     ),
 
                     ExerciceSquare(
                       imagePath: 'lib/assets/icons/train.png',
                       exerciceName: "DEADLIFT",
                       nbSeries: 4,
-                      nbReps: 10
+                      nbReps: 10,
+                      shorthestSide: s,
                     ),
 
                     ExerciceSquare(
                       imagePath: 'lib/assets/icons/train.png',
                       exerciceName: "SHOULDER PRESS",
                       nbSeries: 4,
-                      nbReps: 10
+                      nbReps: 10,
+                      shorthestSide: s,
                     ),
                   ],
                 ),
@@ -226,7 +234,9 @@ class _HomePage extends State<HomePage> {
       bottomNavigationBar: BottomNavBar(
         profile: profile,
         currentIndex: _currentIndex,
-        onTap: (index) {},
+        onTap: (index) {
+        },
+        shorthestSide: s,
       ),
     );
   }

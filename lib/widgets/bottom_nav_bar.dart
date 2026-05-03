@@ -11,20 +11,24 @@ class BottomNavBar extends StatelessWidget {
   final ProfileData profile;
   final int currentIndex;
   final Function(int) onTap;
+  final double shorthestSide;
 
   const BottomNavBar({
     super.key,
     required this.profile,
     required this.currentIndex,
     required this.onTap,
+    required this.shorthestSide,
   });
 
   @override
   Widget build(BuildContext context) {
+    final s = shorthestSide;
+
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      padding: EdgeInsets.only(left: s * 0.06, right: s * 0.06, bottom: s * 0.09),
       child: Container(
-        height: 60,
+        height: s * 0.13,
         decoration: BoxDecoration(
           color: AppColors.button,
           borderRadius: BorderRadius.circular(20),
@@ -36,19 +40,18 @@ class BottomNavBar extends StatelessWidget {
               icon: Image.asset(
                 'lib/assets/icons/train.png',
                 color: currentIndex == 0
-                  ? AppColors.text
-                  : AppColors.textSecondary,
+                    ? AppColors.text
+                    : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
-              
+
               onPressed: () {
                 onTap(0);
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => TrainingPage(
-                      profile: profile
-                    ),
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        TrainingPage(profile: profile),
                     transitionDuration: Duration.zero,
                     reverseTransitionDuration: Duration.zero,
                   ),
@@ -60,19 +63,18 @@ class BottomNavBar extends StatelessWidget {
               icon: Image.asset(
                 'lib/assets/icons/timer.png',
                 color: currentIndex == 1
-                  ? AppColors.text
-                  : AppColors.textSecondary,
+                    ? AppColors.text
+                    : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
-              
+
               onPressed: () {
                 onTap(1);
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => TimerPage(
-                      profile: profile
-                    ),
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        TimerPage(profile: profile),
                     transitionDuration: Duration.zero,
                     reverseTransitionDuration: Duration.zero,
                   ),
@@ -81,23 +83,21 @@ class BottomNavBar extends StatelessWidget {
             ),
 
             IconButton(
-              iconSize: 30,
               icon: Image.asset(
                 'lib/assets/icons/home.png',
                 color: currentIndex == 2
-                  ? AppColors.text
-                  : AppColors.textSecondary,
+                    ? AppColors.text
+                    : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
-              
+
               onPressed: () {
                 onTap(2);
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => HomePage(
-                      profile: profile
-                    ),
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        HomePage(profile: profile),
                     transitionDuration: Duration.zero,
                     reverseTransitionDuration: Duration.zero,
                   ),
@@ -109,8 +109,8 @@ class BottomNavBar extends StatelessWidget {
               icon: Image.asset(
                 'lib/assets/icons/success.png',
                 color: currentIndex == 3
-                  ? AppColors.text
-                  : AppColors.textSecondary,
+                    ? AppColors.text
+                    : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
 
@@ -119,9 +119,8 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => SuccessPage(
-                      profile: profile
-                    ),
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        SuccessPage(profile: profile),
                     transitionDuration: Duration.zero,
                     reverseTransitionDuration: Duration.zero,
                   ),
@@ -130,12 +129,11 @@ class BottomNavBar extends StatelessWidget {
             ),
 
             IconButton(
-              iconSize: 30,
               icon: Image.asset(
                 'lib/assets/icons/profil.png',
                 color: currentIndex == 4
-                  ? AppColors.text
-                  : AppColors.textSecondary,
+                    ? AppColors.text
+                    : AppColors.textSecondary,
                 colorBlendMode: BlendMode.srcIn,
               ),
 
@@ -144,9 +142,8 @@ class BottomNavBar extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) => ProfilPage(
-                      profile: profile
-                    ),
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        ProfilPage(profile: profile),
                     transitionDuration: Duration.zero,
                     reverseTransitionDuration: Duration.zero,
                   ),

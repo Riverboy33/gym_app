@@ -59,6 +59,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -80,16 +83,25 @@ class _RegisterPageState extends State<RegisterPage> {
               label: "Profession",
               hint: "Votre profession",
               maxLength: 20,
+              shortestSide: s,
             ),
+
+            SizedBox(height: h * 0.04),
 
             CustomTextField(
               controller: bio,
               label: "Décrivez vous",
               hint: "Entrez votre bio",
               maxLength: 50,
+              shortestSide: s,
             ),
 
+            SizedBox(height: h * 0.05),
+
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.button,
+              ),
               onPressed: () async {
                 debugPrint("➡️ Avant POST");
                 if (name.text.trim().isEmpty) {
@@ -124,7 +136,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   );
                 }
               },
-              child: const Text("S'inscrire"),
+              child: const Text(
+                "S'inscrire",
+                style: TextStyle(
+                  color: AppColors.background,
+                ),
+              ),
             ),
           ],
         ),

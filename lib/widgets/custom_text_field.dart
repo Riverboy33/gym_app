@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final String hint;
   final int maxLength;
+  final double shortestSide;
 
   const CustomTextField({
     super.key,
@@ -13,23 +14,26 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     required this.hint,
     required this.maxLength,
+    required this.shortestSide,
   });
 
   @override
   Widget build(BuildContext context) {
+    final s = shortestSide;
+
     return Column(
       children: [
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 20,
+          style: TextStyle(
+            fontSize: s * 0.05,
             fontWeight: FontWeight.w300,
             color: AppColors.text,
           ),
         ),
 
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 100),
+          padding: EdgeInsets.symmetric(horizontal: s * 0.25),
           child: TextField(
             controller: controller,
             maxLength: maxLength,
@@ -41,8 +45,6 @@ class CustomTextField extends StatelessWidget {
             ),
           ),
         ),
-
-        const SizedBox(height: 40),
       ],
     );
   }

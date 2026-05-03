@@ -74,6 +74,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -95,9 +98,15 @@ class _LoginPageState extends State<LoginPage> {
               label: "Quel est votre Nom et Prenom ?",
               hint: "Entrez votre nom",
               maxLength: 20,
+              shortestSide: s,
             ),
 
+            SizedBox(height: h * 0.05),
+
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.button,
+              ),
               onPressed: () async {
                 print("🔥 BUTTON CLICKED");
                 if (nameController.text.trim().isEmpty) {
@@ -109,7 +118,12 @@ class _LoginPageState extends State<LoginPage> {
 
                 await loginUser();
               },
-              child: const Text("Se connecter"),
+              child: const Text(
+                "Se connecter",
+                style: TextStyle(
+                  color: AppColors.background
+                ),
+              ),
             ),
           ],
         ),

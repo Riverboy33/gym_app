@@ -23,6 +23,9 @@ class _SuccessPage extends State<SuccessPage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+    
     return Scaffold(
       backgroundColor: AppColors.background,
       
@@ -45,6 +48,7 @@ class _SuccessPage extends State<SuccessPage> {
         currentIndex: _currentIndex,
         onTap: (index) {
         },
+        shorthestSide: s,
       ),
     );
   }

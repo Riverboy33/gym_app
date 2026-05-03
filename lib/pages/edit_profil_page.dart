@@ -39,6 +39,9 @@ class _EditProfilPageState extends State<EditProfilPage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.background,
 
@@ -61,21 +64,30 @@ class _EditProfilPageState extends State<EditProfilPage> {
               label: "Quel est votre Nom et Prenom ?",
               hint: "Entrez votre nom",
               maxLength: 20,
+              shortestSide: s,
             ),
+
+            SizedBox(height: h * 0.04),
 
             CustomTextField(
               controller: profession,
               label: "Quelle est votre profession ?",
               hint: "Entrez votre profession",
               maxLength: 20,
+              shortestSide: s,
             ),
+
+            SizedBox(height: h * 0.04),
 
             CustomTextField(
               controller: bio,
               label: "Décrivez vous",
               hint: "Entrez votre bio",
               maxLength: 50,
+              shortestSide: s,
             ),
+
+            SizedBox(height: h * 0.06),
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(

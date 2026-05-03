@@ -34,6 +34,9 @@ class _ProfilPageState extends State<ProfilPage> {
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final s = MediaQuery.of(context).size.shortestSide;
+
     return Scaffold(
       backgroundColor: AppColors.background,
 
@@ -47,92 +50,88 @@ class _ProfilPageState extends State<ProfilPage> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: s * 0.06),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: h * 0.02),
 
               CircleAvatar(
                 backgroundColor: AppColors.button,
-                radius: 100,
+                radius: s * 0.25,
                 child: Text(
                   getInitiales(profile.name),
-                  style: TextStyle(fontSize: 80, color: AppColors.background),
+                  style: TextStyle(
+                    fontSize: s * 0.2,
+                    color: AppColors.background,
+                  ),
                 ),
               ),
 
-              SizedBox(height: 12),
+              SizedBox(height: h * 0.012),
 
               Text(
                 profile.name,
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: s * 0.075,
                   fontWeight: FontWeight.w600,
                   color: AppColors.text,
                 ),
               ),
 
-              SizedBox(height: 4),
+              SizedBox(height: h * 0.004),
 
               Text(
                 profile.profession,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: s * 0.05,
                   fontWeight: FontWeight.w300,
                   color: AppColors.textSecondary,
                 ),
               ),
 
-              SizedBox(height: 20),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: Divider(
-                  color: AppColors.textSecondary,
-                  thickness: 0.5,
-                  height: 30,
-                ),
+              Divider(
+                color: AppColors.textSecondary,
+                thickness: s * 0.0009,
+                height: s * 0.15,
               ),
-
-              SizedBox(height: 14),
 
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'À PROPOS',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: s * 0.048,
                     fontWeight: FontWeight.w400,
                     color: AppColors.textSecondary,
                   ),
                 ),
               ),
 
-              SizedBox(height: 10),
+              SizedBox(height: h * 0.01),
 
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   profile.bio,
                   style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w200,
+                    fontSize: s * 0.045,
+                    fontWeight: FontWeight.w300,
                     color: AppColors.text,
                   ),
                 ),
               ),
 
-              SizedBox(height: 30),
+              SizedBox(height: h * 0.035),
 
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.button,
-                    padding: EdgeInsets.symmetric(vertical: 30),
+                    padding: EdgeInsets.symmetric(vertical: s * 0.075),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -141,12 +140,13 @@ class _ProfilPageState extends State<ProfilPage> {
                     final ProfileData? result = await Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => EditProfilPage(
-                          id: profile.id,
-                          name: profile.name,
-                          profession: profile.profession,
-                          bio: profile.bio,
-                        ),
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            EditProfilPage(
+                              id: profile.id,
+                              name: profile.name,
+                              profession: profile.profession,
+                              bio: profile.bio,
+                            ),
                         transitionDuration: Duration.zero,
                         reverseTransitionDuration: Duration.zero,
                       ),
@@ -159,7 +159,10 @@ class _ProfilPageState extends State<ProfilPage> {
                   },
                   child: Text(
                     'Modifier le profil',
-                    style: TextStyle(color: AppColors.background, fontSize: 20),
+                    style: TextStyle(
+                      color: AppColors.background,
+                      fontSize: s * 0.05
+                    ),
                   ),
                 ),
               ),
@@ -171,8 +174,8 @@ class _ProfilPageState extends State<ProfilPage> {
       bottomNavigationBar: BottomNavBar(
         profile: profile,
         currentIndex: _currentIndex,
-        onTap: (index) {
-        },
+        onTap: (index) {},
+        shorthestSide: s,
       ),
     );
   }

@@ -6,6 +6,7 @@ class ExerciceSquare extends StatelessWidget {
   final String imagePath;
   final int nbSeries;
   final int nbReps;
+  final double shorthestSide;
 
   const ExerciceSquare({
     super.key,
@@ -13,13 +14,16 @@ class ExerciceSquare extends StatelessWidget {
     required this.imagePath,
     required this.nbSeries,
     required this.nbReps,
+    required this.shorthestSide,
   });
 
   @override
   Widget build(BuildContext context) {
+    final s = shorthestSide;
+
     return Container(
-      height: 200,
-      width: 150,
+      height: s * 0.35,
+      width: s * 0.26,
       decoration: BoxDecoration(
         color: AppColors.button,
         borderRadius: BorderRadius.circular(25),
@@ -28,34 +32,34 @@ class ExerciceSquare extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: s * 0.03),
             child: Image.asset(
               imagePath,
-              height: 130,
-              width: 130,
+              height: s * 0.2,
+              width: s * 0.2,
             ),
           ),
 
-          const SizedBox(height: 5),
+          SizedBox(height: s * 0.01),
 
           Text(
             exerciceName,
             style: TextStyle(
               fontFamily: 'Fontspring',
-              fontSize: 15,
+              fontSize: s * 0.025,
               color: AppColors.background,
             ),
           ),
 
-          const SizedBox(height: 2),
+          SizedBox(height: s * 0.002),
 
           Text(
             "$nbSeries SERIES x $nbReps REPS",
             style: TextStyle(
               color: AppColors.background,
               fontFamily: 'ZonaPro',
-              fontSize: 9,
-              fontWeight: FontWeight.w700,
+              fontSize: s * 0.019,
+              fontWeight: FontWeight.w800,
             ),
           ),
         ],
