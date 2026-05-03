@@ -4,18 +4,22 @@ import 'package:gym_app/utils/app_colors.dart';
 class CreateSquare extends StatelessWidget {
   final String name;
   final String imagePath;
+  final double shortestSide;
 
   const CreateSquare({
     super.key,
     required this.name,
     required this.imagePath,
+    required this.shortestSide,
   });
 
   @override
   Widget build(BuildContext context) {
+    final s = shortestSide;
+
     return Container(
-      height: 200,
-      width: 200,
+      height: s * 0.48,
+      width: s * 0.48,
       decoration: BoxDecoration(
         color: AppColors.button,
         borderRadius: BorderRadius.circular(25),
@@ -25,26 +29,26 @@ class CreateSquare extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(25),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: s * 0.01),
               child: Image.asset(
                 imagePath,
-                height: 200,
-                width: 200,
+                height: s * 0.48,
+                width: s * 0.48,
                 color: Colors.grey,
               ),
             ),
           ),
           Center(
             child: SizedBox(
-              width: 140,
+              width: s * 0.30,
               child: Text(
                 name,
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Fontspring',
-                  fontSize: 25,
+                  fontSize: s * 0.06,
                   color: AppColors.text,
                 ),
               ),
